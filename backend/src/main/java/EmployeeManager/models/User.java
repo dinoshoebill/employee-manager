@@ -1,4 +1,4 @@
-package dinoshoebill.models;
+package EmployeeManager.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -22,8 +22,11 @@ public class User {
 
     @NotBlank
     @Size(max = 50)
-    private String username;
+    private String name;
 
+    @NotBlank
+    @Size(max = 50)
+    private String surname;
 
     @NotBlank
     @Size(max = 70)
@@ -38,11 +41,11 @@ public class User {
     @NotBlank
     private String role;
 
-    public User() {
-    }
+    public User() { }
 
-    public User(String username, String email, String password, String role) {
-        this.username = username;
+    public User(String name, String surname, String email, String password, String role) {
+        this.name = name;
+        this.surname = surname;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -52,12 +55,16 @@ public class User {
         return userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() { return name; }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getSurname() { return surname; }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -89,11 +96,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(userId, user.userId) && Objects.equals(username, user.username) && Objects.equals(email, user.email);
+        return Objects.equals(userId, user.userId) && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, username, email);
+        return Objects.hash(userId, name, surname, email);
     }
 }
