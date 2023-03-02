@@ -4,6 +4,7 @@ import EmployeeManager.models.Employee;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface IEmployeeService {
 
@@ -11,11 +12,11 @@ public interface IEmployeeService {
 
     Optional<Employee> findByIdentificator(Long identificator);
 
-    Optional<Employee> findById(Long employeeId);
+    Optional<Employee> findById(UUID employeeId);
 
     Employee createNewEmployee(Employee employee);
 
     Employee updateEmployee(Employee employee);
 
-    Employee deleteEmployee(Long employeeId);
+    Employee deleteEmployee(UUID employeeId);
 }

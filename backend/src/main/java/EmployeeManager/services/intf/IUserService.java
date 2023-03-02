@@ -4,16 +4,17 @@ import EmployeeManager.models.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface IUserService {
 
     List<User> listAllUsers();
 
-    Optional<User> findById(Long userId);
+    Optional<User> findById(UUID userId);
 
     User createNewUser(User user);
 
     User updateUser(User user);
 
-    User deleteUser(Long userId);
+    User deleteUser(UUID userId);
 }
