@@ -1,5 +1,6 @@
 package EmployeeManager.dao;
 
+import EmployeeManager.models.Employee;
 import EmployeeManager.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,15 +9,13 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID> {
+public interface EmployeeRepository extends JpaRepository<Employee, UUID> {
 
-    Optional<User> findById(UUID UserId);
+    Optional<Employee> findById(UUID employeeId);
 
-    Optional<User> findByUsername(String username);
+    Optional<Employee> findByIdentificator(UUID identificator);
 
-    Optional<User> findByEmail(String email);
-
-    Boolean existsByUsername(String username);
+    Optional<Employee> findByEmail(String email);
 
     Boolean existsByEmail(String email);
 }
