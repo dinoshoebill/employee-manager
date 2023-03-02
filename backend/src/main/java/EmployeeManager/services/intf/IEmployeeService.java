@@ -1,21 +1,21 @@
 package EmployeeManager.services.intf;
 
-import EmployeeManager.models.User;
+import EmployeeManager.models.Employee;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface IEmployeeService {
-    
-    List<User> listAllUsers();
 
-    Optional<User> findByIdentificator(Long identificator);
+    List<Employee> listAllEmployees();
 
-    Optional<User> findById(Long userId);
+    Optional<Employee> findByIdentificator(Long identificator);
 
-    User createNewUser(User user);
+    Optional<Employee> findById(Long employeeId);
 
-    User updateUser(User user);
+    Employee createNewEmployee(Employee employee);
 
-    User deleteUser(Long userId);
+    Employee updateEmployee(Employee employee);
+
+    Employee deleteEmployee(Long employeeId);
 }
