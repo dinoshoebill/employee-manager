@@ -33,18 +33,18 @@ public class Employee {
     @NotBlank
     @Size(max = 70)
     @Email
-    private String email;
+    private String companyEmail;
 
     @NotBlank
     private long salary;
 
     public Employee() { }
 
-    public Employee(String identificator, String name, String surname, String email, long salary) {
+    public Employee(String identificator, String name, String surname, String companyEmail, long salary) {
         this.identificator = identificator;
         this.name = name;
         this.surname = surname;
-        this.email = email;
+        this.companyEmail = companyEmail;
         this.salary = salary;
     }
 
@@ -68,12 +68,12 @@ public class Employee {
         this.surname = surname;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCompanyEmail() {
+        return companyEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
     }
 
     public long getSalary() {
@@ -89,11 +89,11 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(employeeId, employee.employeeId) && Objects.equals(identificator, employee.identificator) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(email, employee.email);
+        return Objects.equals(employeeId, employee.employeeId) && Objects.equals(identificator, employee.identificator) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(companyEmail, employee.companyEmail);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, identificator, name, surname, email);
+        return Objects.hash(employeeId, identificator, name, surname, companyEmail);
     }
 }
