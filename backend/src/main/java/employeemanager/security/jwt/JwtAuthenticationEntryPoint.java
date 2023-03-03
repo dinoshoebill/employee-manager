@@ -1,6 +1,7 @@
 package employeemanager.security.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import employeemanager.security.payload.response.ErrorResponse;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
