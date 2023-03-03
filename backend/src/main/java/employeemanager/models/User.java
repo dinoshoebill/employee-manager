@@ -1,6 +1,7 @@
 package employeemanager.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import employeemanager.utils.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -39,11 +40,11 @@ public class User {
     private String password;
 
     @NotBlank
-    private String role;
+    private Role role;
 
     public User() { }
 
-    public User(String name, String surname, String email, String password, String role) {
+    public User(String name, String surname, String email, String password, Role role) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -83,11 +84,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
