@@ -1,6 +1,6 @@
-package EmployeeManager.services.intf;
+package employeemanager.services.intf;
 
-import EmployeeManager.models.User;
+import employeemanager.models.User;
 
 import java.util.List;
 import java.util.Optional;

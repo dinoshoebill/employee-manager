@@ -1,5 +1,6 @@
-package EmployeeManager.models;
+package employeemanager.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,18 +10,15 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(	name = "employees",
+@Table(	name = "users",
         uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
-public class Employee {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID employeeId;
-
-    @NotBlank
-    @Size(max = 20)
-    private String identificator;
+    private UUID userId;
 
     @NotBlank
     @Size(max = 50)
@@ -36,25 +34,26 @@ public class Employee {
     private String email;
 
     @NotBlank
-    private long salary;
+    @Size(max = 120)
+    @JsonProperty(value = "password", access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
 
-    public Employee() { }
+    @NotBlank
+    private String role;
 
-    public Employee(String identificator, String name, String surname, String email, long salary) {
-        this.identificator = identificator;
+    public User() { }
+
+    public User(String name, String surname, String email, String password, String role) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.salary = salary;
+        this.password = password;
+        this.role = role;
     }
 
-    public UUID getEmployeeId() {
-        return employeeId;
+    public UUID getUserId() {
+        return userId;
     }
-
-    private String getIdentificator() { return identificator; }
-
-    private  void setIdentificator(String identificator) { this.identificator = identificator; }
 
     public String getName() { return name; }
 
@@ -76,24 +75,32 @@ public class Employee {
         this.email = email;
     }
 
-    public long getSalary() {
-        return salary;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSalary(long salary) {
-        this.salary = salary;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(employeeId, employee.employeeId) && Objects.equals(identificator, employee.identificator) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(email, employee.email);
+        User user = (User) o;
+        return Objects.equals(userId, user.userId) && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, identificator, name, surname, email);
+        return Objects.hash(userId, name, surname, email);
     }
 }

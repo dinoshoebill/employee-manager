@@ -1,6 +1,6 @@
-package EmployeeManager.dao;
+package employeemanager.dao;
 
-import EmployeeManager.models.Employee;
+import employeemanager.models.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
