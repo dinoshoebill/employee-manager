@@ -1,5 +1,6 @@
 package employeemanager.security.userdetails;
 
+import employeemanager.dao.UserRepository;
 import employeemanager.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
