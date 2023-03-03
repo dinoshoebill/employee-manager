@@ -11,18 +11,18 @@ import java.util.*;
 
 public class SecurityUserDetails implements UserDetails {
 
-    private UUID userId;
+    private final UUID userId;
 
-    private  String username;
+    private final String username;
 
-    private String email;
+    private final String email;
 
-    private Role role;
+    private final Role role;
 
     @JsonIgnore
-    private String password;
+    private final String password;
 
-    private Collection<? extends GrantedAuthority> authorities;
+    private final Collection<? extends GrantedAuthority> authorities;
 
     public SecurityUserDetails(UUID userId, String username, String email, String password, Role role,
                                Collection<? extends GrantedAuthority> authorities) {
@@ -73,7 +73,7 @@ public class SecurityUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override
