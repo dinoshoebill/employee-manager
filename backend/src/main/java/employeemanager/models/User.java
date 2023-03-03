@@ -13,7 +13,6 @@ import java.util.UUID;
 @Entity
 @Table(	name = "users",
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
 public class User {
@@ -35,21 +34,21 @@ public class User {
     private String email;
 
     @NotBlank
+    private Role role;
+
+    @NotBlank
     @Size(max = 120)
     @JsonProperty(value = "password", access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @NotBlank
-    private Role role;
-
     public User() { }
 
-    public User(String name, String surname, String email, String password, Role role) {
+    public User(String name, String surname, String email, Role role, String password) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.password = password;
         this.role = role;
+        this.password = password;
     }
 
     public UUID getUserId() {
