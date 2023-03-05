@@ -1,7 +1,7 @@
 package employeemanager.services.intf;
 
 import employeemanager.models.User;
-import employeemanager.security.payload.request.CreateUserRequest;
+import employeemanager.utils.CreateUserTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +13,7 @@ public interface IUserService {
 
     Optional<User> findByUserId(UUID userId);
 
-    User createNewUser(CreateUserRequest user);
+    User createNewUser(CreateUserTemplate user);
 
     User updateUser(User user);
 

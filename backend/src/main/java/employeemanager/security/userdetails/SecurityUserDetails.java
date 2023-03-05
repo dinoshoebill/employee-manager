@@ -62,9 +62,7 @@ public class SecurityUserDetails implements UserDetails {
         return email;
     }
 
-    public Role getRole() {
-        return role;
-    }
+    public Role getRole() { return role; }
 
     @Override
     public String getPassword() {

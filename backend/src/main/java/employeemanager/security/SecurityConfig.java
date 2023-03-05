@@ -3,7 +3,6 @@ package employeemanager.security;
 import employeemanager.security.jwt.JwtAuthenticationEntryPoint;
 import employeemanager.security.jwt.JwtAuthenticationFilter;
 import employeemanager.security.userdetails.SecurityUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,11 +17,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 public class SecurityConfig {
-    @Autowired
-    SecurityUserDetailsService userDetailsService;
+    private final SecurityUserDetailsService userDetailsService;
+    private final JwtAuthenticationEntryPoint unauthorizedHandler;
 
-    @Autowired
-    private JwtAuthenticationEntryPoint unauthorizedHandler;
+    public SecurityConfig(SecurityUserDetailsService userDetailsService, JwtAuthenticationEntryPoint unauthorizedHandler) {
+        this.userDetailsService = userDetailsService;
+        this.unauthorizedHandler = unauthorizedHandler;
+    }
 
     @Bean
     public JwtAuthenticationFilter authenticationJwtTokenFilter() {

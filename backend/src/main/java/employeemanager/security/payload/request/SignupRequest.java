@@ -25,4 +25,24 @@ public class SignupRequest {
     @NotBlank
     @Size(min = 10, max = 30)
     private String password;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

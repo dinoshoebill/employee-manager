@@ -2,7 +2,6 @@ package employeemanager.security.userdetails;
 
 import employeemanager.dao.UserRepository;
 import employeemanager.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,8 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class SecurityUserDetailsService implements UserDetailsService {
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public SecurityUserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     @Transactional
