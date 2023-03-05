@@ -15,7 +15,7 @@ public class TestController {
     public String allAccess() {
         return "Public content route.";
     }
-    
+
     @GetMapping("/employee_admin")
     @PreAuthorize("hasAuthority('EMPLOYEE_ADMIN')")
     public String employeeAdminAccess() {
