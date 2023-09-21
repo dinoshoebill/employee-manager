@@ -1,2 +1,2 @@
 # employee-manager
-Simple employee manager Spring Boot application.
+Simple employee manager Spring Boot API.
